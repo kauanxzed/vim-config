@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "kauan.plugins" }, { import = "kauan.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "andromeda" },
+		colorscheme = { "rose-pine" },
 	},
 	checker = {
 		enabled = true,
