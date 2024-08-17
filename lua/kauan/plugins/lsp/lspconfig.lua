@@ -6,6 +6,9 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
+		require("neodev").setup({
+			-- add any options here, or leave empty to use the default settings
+		})
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
 
@@ -99,22 +102,24 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig["vimls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["taplo"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			settings = { -- custom settings for lua
+			ettings = {
 				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make language server aware of runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
+					completion = {
+						callSnippet = "Replace",
 					},
 				},
 			},
