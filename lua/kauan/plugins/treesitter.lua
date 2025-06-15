@@ -3,10 +3,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"windwp/nvim-ts-autotag",
-		},
 		config = function()
 			-- import nvim-treesitter plugin
 			local treesitter = require("nvim-treesitter.configs")
@@ -50,8 +46,7 @@ return {
 						node_decremental = "<bs>",
 					},
 				},
-				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-				require("ts_context_commentstring").setup({}),
+        additional_vim_regex_highlighting = false,
 			})
 		end,
 	},

@@ -1,2 +1,2 @@
-require("kauan.core.keymaps")
-require("kauan.core.options")
+require("Kauan.core.options")
+require("Kauan.core.keymaps")

@@ -1,2 +1,2 @@
-require("kauan.core")
-require("kauan.lazy")
+require("Kauan.core")
+require("Kauan.lazy")
